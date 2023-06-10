@@ -16,9 +16,11 @@ export function Card({
         height={90}
       />
       <div className="ml-3">
-        <h3 className="text-3xl">{name}</h3>
-        <p>{description}</p>
-        <p className="font-light">{author}</p>
+        <h3 className="text-4xl font-extrabold">{name}</h3>
+        <p className="text-base">{description}</p>
+        <p className="font-extralight text-sm">{author}</p>
+        <p className="font-extralight">Total Duration: {duration}</p>
+        <p className="font-extralight mb-5">Published on: {publishDate}</p>
       </div>
     </div>
   );

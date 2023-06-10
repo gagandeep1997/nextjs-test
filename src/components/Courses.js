@@ -1,9 +1,9 @@
 import { Card } from "./Card";
 
 export function Courses({ Courses }) {
-  const listitems = Courses.map((value, index) => (
+  const listitems = Courses.map((value) => (
     <Card
-      key={index}
+      key={value.id}
       name={value.name}
       description={value.description}
       author={value.author}
