@@ -1,5 +1,10 @@
+import "./globals.css";
+import { Wrapper } from "../components/Wrapper";
+
 export default function Home() {
   return (
-    <h1>gagan</h1>
-  )
+    <>
+      <Wrapper />
+    </>
+  );
 }
