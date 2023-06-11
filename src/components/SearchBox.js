@@ -2,13 +2,14 @@
 
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
-export function SearchBox({ InitalCourses, Courses, updateCourses }) {
+export function SearchBox({ InitalCourses, updateCourses }) {
   const handleOnSearch = (string, results) => {
     updateCourses(results);
-    if(string===''){
+    if (string === "") {
       updateCourses(InitalCourses);
     }
   };
+
   const formatResult = (item) => {
     return (
       <>
@@ -16,6 +17,7 @@ export function SearchBox({ InitalCourses, Courses, updateCourses }) {
       </>
     );
   };
+
   return (
     <div className="my-5 ml-5">
       <ReactSearchAutocomplete

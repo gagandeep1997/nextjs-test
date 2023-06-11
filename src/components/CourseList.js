@@ -3,20 +3,15 @@
 import { useCourses } from "./useCourses";
 import { SearchBox } from "./SearchBox";
 import { Courses } from "./Courses";
+import { CourseListHeader } from "./CourseListHeader";
 
 export function CourseList() {
   const { InitalCourses, courses, setCourses } = useCourses();
 
   return (
     <>
-      <SearchBox
-        InitalCourses={InitalCourses}
-        Courses={courses}
-        updateCourses={setCourses}
-      />
-      <h3 className="font-mono ml-5 text-xl mt-10">
-        List of Available Courses
-      </h3>
+      <SearchBox InitalCourses={InitalCourses} updateCourses={setCourses} />
+      <CourseListHeader Courses={courses} updateCourses={setCourses} />
       <Courses Courses={courses} />
     </>
   );
