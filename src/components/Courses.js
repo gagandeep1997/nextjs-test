@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "./Card";
+import { Card } from "./Card/Card";
 import { Modal } from "./Modal";
 import { Cart } from "./Cart/Cart";
 import { LoggedInPopup } from "./LoggedInPopup";

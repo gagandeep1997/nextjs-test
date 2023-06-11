@@ -1,6 +1,6 @@
 import React from "react";
 import { CartItem } from "./CartItem";
-import { Button } from "../elements/Button";
+import { Button } from "../../elements/Button";
 
 export function Cart({ cartItems }) {
   const [isCartOpen, setCartOpen] = React.useState(false);
@@ -28,7 +28,7 @@ export function Cart({ cartItems }) {
         <div className="fixed top-0 right-0 w-80 h-screen bg-sky-100 shadow-lg transition duration-300 ease-in-out">
           <div className="p-4">
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-4 text-gray-500 hover:text-gray-700"
               onClick={closeCart}
             >
               <svg

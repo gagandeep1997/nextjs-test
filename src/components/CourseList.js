@@ -1,6 +1,6 @@
 "use client";
 
-import { useCourses } from "./custom hooks/useCourses";
+import { useCourses } from "../hooks/useCourses";
 import { SearchBar } from "./SearchBar";
 import { Courses } from "./Courses";
 import { CourseListHeader } from "./CourseListHeader";
