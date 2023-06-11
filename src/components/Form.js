@@ -6,7 +6,6 @@ export function Form({ onClose, setIsLoggedIn }) {
   const [password, setPassword] = React.useState("");
 
   const handleUsernameChange = (event) => {
-    console.log([event.target.name])
     setUsername(event.target.value);
   };
 
