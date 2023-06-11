@@ -11,8 +11,8 @@ export function Cart({ cartItems }) {
   const closeCart = () => {
     setCartOpen(false);
   };
-  console.log(cartItems);
-  const cartitemsarr = cartItems.map((value) => (
+
+  const cartItem = cartItems.map((value) => (
     <CartItem key={value.id} name={value.name} quantity={value.quantity} />
   ));
 
@@ -52,7 +52,7 @@ export function Cart({ cartItems }) {
                 Qty
               </div>
             </div>
-            {cartitemsarr}
+            {cartItem}
           </div>
         </div>
       )}

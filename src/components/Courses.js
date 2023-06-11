@@ -1,7 +1,8 @@
 import React from "react";
 import { Card } from "./Card";
 import { Modal } from "./Modal";
-import { Cart } from "./Cart";
+import { Cart } from "./Cart/Cart";
+import { LoggedInPopup } from "./LoggedInPopup";
 
 export function Courses({ Courses }) {
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -21,13 +22,7 @@ export function Courses({ Courses }) {
   const listitems = Courses.map((value) => (
     <Card
       key={value.id}
-      id={value.id}
-      name={value.name}
-      description={value.description}
-      author={value.author}
-      publishDate={value.publishDate}
-      duration={value.duration}
-      image={value.image}
+      item={value}
       isLoggedIn={isLoggedIn}
       setModalOpen={setModalOpen}
       setCartItems={setCartItems}
@@ -44,19 +39,7 @@ export function Courses({ Courses }) {
       />
       {isLoggedIn && (
         <>
-          <div className="login-successfull-popup fixed inset-0 flex items-center justify-center bg-black/[.80] z-10">
-            <div className="bg-white w-100 p-8 rounded shadow-md text-center">
-              <h2 className="text-xl text-black font-bold mb-3">
-                Successfully Logged In
-              </h2>
-              <button
-                className="mt-6 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
-                onClick={closePopup}
-              >
-                Close
-              </button>
-            </div>
-          </div>
+          <LoggedInPopup closePopup={closePopup} />
           <Cart cartItems={cartItems} />
         </>
       )}

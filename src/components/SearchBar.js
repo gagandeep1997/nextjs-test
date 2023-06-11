@@ -11,11 +11,7 @@ export function SearchBar({ InitalCourses, updateCourses }) {
   };
 
   const formatResult = (item) => {
-    return (
-      <>
-        <span className="block text-left">{item.name}</span>
-      </>
-    );
+    return <span className="block text-left">{item.name}</span>;
   };
 
   return (

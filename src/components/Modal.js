@@ -14,9 +14,11 @@ export function Modal({ isOpen, onClose, setIsLoggedIn }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (username === "" || password === "") {
       return;
     }
+    
     setUsername("");
     setPassword("");
 
@@ -37,12 +39,6 @@ export function Modal({ isOpen, onClose, setIsLoggedIn }) {
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            {/* <label
-              htmlFor="username"
-              className="block text-gray-700 text-sm font-bold mb-2"
-            >
-              Username:
-            </label> */}
             <input
               type="text"
               id="username"
@@ -53,12 +49,6 @@ export function Modal({ isOpen, onClose, setIsLoggedIn }) {
             />
           </div>
           <div className="mb-6">
-            {/* <label
-              htmlFor="password"
-              className="block text-gray-700 text-sm font-bold mb-2"
-            >
-              Password:
-            </label> */}
             <input
               type="password"
               id="password"
