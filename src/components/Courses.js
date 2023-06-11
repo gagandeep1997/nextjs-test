@@ -1,14 +1,12 @@
 import React from "react";
 import { Card } from "./Card";
 import { Modal } from "./Modal";
+import { Cart } from "./Cart";
 
 export function Courses({ Courses }) {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-  const handleModalOpen = () => {
-    setModalOpen(true);
-  };
+  const [cartItems, setCartItems] = React.useState([]);
 
   const handleModalClose = () => {
     setModalOpen(false);
@@ -32,6 +30,7 @@ export function Courses({ Courses }) {
       image={value.image}
       isLoggedIn={isLoggedIn}
       setModalOpen={setModalOpen}
+      setCartItems={setCartItems}
     />
   ));
   return (
@@ -43,19 +42,22 @@ export function Courses({ Courses }) {
         setIsLoggedIn={setIsLoggedIn}
       />
       {isLoggedIn && (
-        <div className="login-successfull-popup fixed inset-0 flex items-center justify-center">
-          <div className="bg-white w-64 p-8 rounded shadow-md text-center">
-            <h2 className="text-xl text-black font-bold mb-3">
-              Successfully Logged In
-            </h2>
-            <button
-              className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-              onClick={closePopup}
-            >
-              Close
-            </button>
+        <>
+          <div className="login-successfull-popup fixed inset-0 flex items-center justify-center">
+            <div className="bg-white w-64 p-8 rounded shadow-md text-center">
+              <h2 className="text-xl text-black font-bold mb-3">
+                Successfully Logged In
+              </h2>
+              <button
+                className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                onClick={closePopup}
+              >
+                Close
+              </button>
+            </div>
           </div>
-        </div>
+          <Cart cartItems={cartItems} />
+        </>
       )}
     </>
   );

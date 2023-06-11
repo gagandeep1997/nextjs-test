@@ -9,7 +9,8 @@ export function Card({
   duration,
   image,
   isLoggedIn,
-  setModalOpen
+  setModalOpen,
+  setCartItems,
 }) {
   const [hoveredCourse, setHoveredCourse] = React.useState(null);
 
@@ -23,9 +24,21 @@ export function Card({
 
   const handleAddCourse = (courseId) => {
     console.log(`Add course with ID ${courseId}`);
+    
+    const newitem = {
+      id: id,
+      name: name,
+      quantity: 1,
+    };
+    
+    setCartItems((prevstate) => {
+      return [...prevstate, newitem];
+    });
+    
     if (isLoggedIn) {
       return;
     }
+    
     setModalOpen(true);
   };
 
