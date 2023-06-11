@@ -13,16 +13,16 @@ export function CourseListHeader({ Courses, updateCourses }) {
               const sortedData = getSortedData(Courses, "publishDate");
               updateCourses(sortedData);
             }}
-            sortCategory="Date"
-            borderClass="rounded-l"
+            customClassName="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            content="Date"
           />
           <Button
             onClick={() => {
               const sortedData = getSortedData(Courses, "duration");
               updateCourses(sortedData);
             }}
-            sortCategory="Duration"
-            borderClass="rounded-r"
+            customClassName="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+            content="Duration"
           />
         </div>
       </div>

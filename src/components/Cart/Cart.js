@@ -1,5 +1,6 @@
 import React from "react";
 import { CartItem } from "./CartItem";
+import { Button } from "../elements/Button";
 
 export function Cart({ cartItems }) {
   const [isCartOpen, setCartOpen] = React.useState(false);
@@ -18,12 +19,11 @@ export function Cart({ cartItems }) {
 
   return (
     <div className="fixed top-0 left-0 right-0 h-16 bg-black/[.60]">
-      <button
-        className="fixed top-3 right-5 bg-lime-700 hover:bg-lime-800 text-white font-bold py-2 px-4 rounded"
+      <Button
         onClick={toggleCart}
-      >
-      View Cart
-      </button>
+        customClassName="fixed top-3 right-5 bg-lime-700 hover:bg-lime-800 text-white font-bold py-2 px-4 rounded"
+        content="View Cart"
+      />
       {isCartOpen && (
         <div className="fixed top-0 right-0 w-80 h-screen bg-sky-100 shadow-lg transition duration-300 ease-in-out">
           <div className="p-4">
@@ -43,14 +43,12 @@ export function Cart({ cartItems }) {
                 />
               </svg>
             </button>
-            <h3 className="font-bold text-2xl mt-5 pb-3 mb-3 border-black border-b text-black">Cart Content</h3>
+            <h3 className="font-bold text-2xl mt-5 pb-3 mb-3 border-black border-b text-black">
+              Cart Content
+            </h3>
             <div className="flex flex-row justify-between text-black mb-3">
-              <div>
-                Name
-              </div>
-              <div>
-                Qty
-              </div>
+              <div>Name</div>
+              <div>Qty</div>
             </div>
             {cartItem}
           </div>

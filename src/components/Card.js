@@ -1,4 +1,5 @@
 import React from "react";
+import { AddRemoveCardButton } from "./AddRemoveCardButton";
 
 export function Card({
   item,
@@ -11,9 +12,9 @@ export function Card({
   const [showRemoveButton, setShowRemovedButton] = React.useState(false);
 
   const handleMouseEnter = (courseId) => {
-    setHoveredCourse(courseId);
-
     const selectedItem = cartItems.find((item) => item.id === courseId);
+    
+    setHoveredCourse(courseId);
 
     if (selectedItem) {
       setShowRemovedButton(true);
@@ -22,58 +23,6 @@ export function Card({
 
   const handleMouseLeave = () => {
     setHoveredCourse(null);
-  };
-
-  const handleAddCourse = (courseId) => {
-    const selectedItem = cartItems.find((item) => item.id === courseId);
-
-    if (selectedItem) {
-      setCartItems((prevItems) =>
-        prevItems.map((item) => {
-          if (item.id === courseId) {
-            return { ...item, ...{ quantity: item.quantity + 1 } };
-          }
-          return item;
-        })
-      );
-    } else {
-      const newitem = {
-        id: item.id,
-        name: item.name,
-        quantity: 1,
-      };
-
-      setCartItems((prevstate) => {
-        return [...prevstate, newitem];
-      });
-    }
-    setShowRemovedButton(true);
-
-    if (isLoggedIn) {
-      return;
-    }
-
-    setModalOpen(true);
-  };
-
-  const handleRemoveCourse = (courseId) => {
-    const selectedItem = cartItems.find((item) => item.id === courseId);
-
-    if (selectedItem.quantity > 1) {
-      setCartItems((prevItems) =>
-        prevItems.map((item) => {
-          if (item.id === courseId && item.quantity > 1) {
-            return { ...item, ...{ quantity: item.quantity - 1 } };
-          }
-          return item;
-        })
-      );
-    } else {
-      setCartItems((prevItems) =>
-        prevItems.filter((item) => item.id !== courseId)
-      );
-      setShowRemovedButton(false);
-    }
   };
 
   return (
@@ -101,26 +50,16 @@ export function Card({
             Published on: <b>{item.publishDate}</b>
           </p>
         </div>
-        <div className="h-12">
-          {hoveredCourse === item.id && (
-            <>
-              <button
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                onClick={() => handleAddCourse(item.id)}
-              >
-                Add
-              </button>
-              {isLoggedIn && showRemoveButton && (
-                <button
-                  className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 ml-5 border-b-4 border-red-700 hover:border-red-500 rounded"
-                  onClick={() => handleRemoveCourse(item.id)}
-                >
-                  Remove
-                </button>
-              )}
-            </>
-          )}
-        </div>
+        <AddRemoveCardButton
+          item={item}
+          hoveredCourse={hoveredCourse}
+          isLoggedIn={isLoggedIn}
+          showRemoveButton={showRemoveButton}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          setShowRemovedButton={setShowRemovedButton}
+          setModalOpen={setModalOpen}
+        />
       </div>
     </div>
   );
