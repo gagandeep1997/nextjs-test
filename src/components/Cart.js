@@ -1,4 +1,5 @@
 import React from "react";
+import { CartItem } from "./CartItem";
 
 export function Cart({ cartItems }) {
   const [isCartOpen, setCartOpen] = React.useState(false);
@@ -10,32 +11,21 @@ export function Cart({ cartItems }) {
   const closeCart = () => {
     setCartOpen(false);
   };
-
-  let cartitemsarr = cartItems.map((value) => {
-    return (
-      <div className="mb-4">
-        <div className="flex flex-row ml-2">
-          <h3 className="text-base font-medium text-gray-500">{value.name}</h3>
-          <span className="text-base font-medium text-gray-500 mx-10">X</span>
-          <h3 className="text-base font-medium text-gray-500">
-            {value.quantity}
-          </h3>
-        </div>
-      </div>
-    );
-  });
-  console.log(cartitemsarr);
+  console.log(cartItems);
+  const cartitemsarr = cartItems.map((value) => (
+    <CartItem key={value.id} name={value.name} quantity={value.quantity} />
+  ));
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="fixed top-0 left-0 right-0 h-16 bg-black/[.60]">
       <button
-        className="fixed top-5 right-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="fixed top-3 right-5 bg-lime-700 hover:bg-lime-800 text-white font-bold py-2 px-4 rounded"
         onClick={toggleCart}
       >
-        Open Cart
+      View Cart
       </button>
       {isCartOpen && (
-        <div className="fixed top-0 right-0 w-64 h-screen bg-white shadow-lg transition duration-300 ease-in-out">
+        <div className="fixed top-0 right-0 w-80 h-screen bg-sky-100 shadow-lg transition duration-300 ease-in-out">
           <div className="p-4">
             <button
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -53,7 +43,15 @@ export function Cart({ cartItems }) {
                 />
               </svg>
             </button>
-            <p className="font-bold text-black">Cart Content</p>
+            <h3 className="font-bold text-2xl mt-5 pb-3 mb-3 border-black border-b text-black">Cart Content</h3>
+            <div className="flex flex-row justify-between text-black mb-3">
+              <div>
+                Name
+              </div>
+              <div>
+                Qty
+              </div>
+            </div>
             {cartitemsarr}
           </div>
         </div>

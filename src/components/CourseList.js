@@ -1,7 +1,7 @@
 "use client";
 
 import { useCourses } from "./useCourses";
-import { SearchBox } from "./SearchBox";
+import { SearchBar } from "./SearchBar";
 import { Courses } from "./Courses";
 import { CourseListHeader } from "./CourseListHeader";
 
@@ -10,7 +10,7 @@ export function CourseList() {
 
   return (
     <>
-      <SearchBox InitalCourses={InitalCourses} updateCourses={setCourses} />
+      <SearchBar InitalCourses={InitalCourses} updateCourses={setCourses} />
       <CourseListHeader Courses={courses} updateCourses={setCourses} />
       <Courses Courses={courses} />
     </>

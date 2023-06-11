@@ -32,44 +32,46 @@ export function Modal({ isOpen, onClose, setIsLoggedIn }) {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-slate-500">
       <div className="bg-white shadow-md rounded p-8 mb-4">
-        <h1 className="text-black text-3xl text-center font-weight border-b-2 pb-4 border-solid border-slate-300 mb-8">
+        <h1 className="text-black text-3xl text-center font-normal uppercase border-b-2 pb-4 border-solid border-slate-300 mb-8">
           Login
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label
+            {/* <label
               htmlFor="username"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
               Username:
-            </label>
+            </label> */}
             <input
               type="text"
               id="username"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={username}
+              placeholder="Username"
               onChange={handleUsernameChange}
             />
           </div>
           <div className="mb-6">
-            <label
+            {/* <label
               htmlFor="password"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
               Password:
-            </label>
+            </label> */}
             <input
               type="password"
               id="password"
               className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={password}
+              placeholder="Password"
               onChange={handlePasswordChange}
             />
           </div>
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
             >
               Login
             </button>

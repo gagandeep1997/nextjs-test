@@ -2,7 +2,7 @@
 
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
-export function SearchBox({ InitalCourses, updateCourses }) {
+export function SearchBar({ InitalCourses, updateCourses }) {
   const handleOnSearch = (string, results) => {
     updateCourses(results);
     if (string === "") {

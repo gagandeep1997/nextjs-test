@@ -11,6 +11,7 @@ export function Card({
   isLoggedIn,
   setModalOpen,
   setCartItems,
+  cartItems
 }) {
   const [hoveredCourse, setHoveredCourse] = React.useState(null);
 
@@ -24,21 +25,34 @@ export function Card({
 
   const handleAddCourse = (courseId) => {
     console.log(`Add course with ID ${courseId}`);
-    
-    const newitem = {
-      id: id,
-      name: name,
-      quantity: 1,
-    };
-    
-    setCartItems((prevstate) => {
-      return [...prevstate, newitem];
-    });
-    
+
+    const selectedItem = cartItems.find((item) => item.id === courseId);
+
+    if (selectedItem) {
+      setCartItems((prevItems) =>
+        prevItems.map((item) => {
+          if (item.id === courseId) {
+            return { ...item, ...{ quantity: item.quantity + 1 } };
+          }
+          return item;
+        })
+      );
+    } else {
+      const newitem = {
+        id: id,
+        name: name,
+        quantity: 1,
+      };
+
+      setCartItems((prevstate) => {
+        return [...prevstate, newitem];
+      });
+    }
+
     if (isLoggedIn) {
       return;
     }
-    
+
     setModalOpen(true);
   };
 
