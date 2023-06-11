@@ -8,9 +8,16 @@ export function Card({
   cartItems,
 }) {
   const [hoveredCourse, setHoveredCourse] = React.useState(null);
+  const [showRemoveButton, setShowRemovedButton] = React.useState(false);
 
   const handleMouseEnter = (courseId) => {
     setHoveredCourse(courseId);
+
+    const selectedItem = cartItems.find((item) => item.id === courseId);
+
+    if (selectedItem) {
+      setShowRemovedButton(true);
+    }
   };
 
   const handleMouseLeave = () => {
@@ -18,8 +25,6 @@ export function Card({
   };
 
   const handleAddCourse = (courseId) => {
-    console.log(`Add course with ID ${courseId}`);
-
     const selectedItem = cartItems.find((item) => item.id === courseId);
 
     if (selectedItem) {
@@ -42,12 +47,33 @@ export function Card({
         return [...prevstate, newitem];
       });
     }
+    setShowRemovedButton(true);
 
     if (isLoggedIn) {
       return;
     }
 
     setModalOpen(true);
+  };
+
+  const handleRemoveCourse = (courseId) => {
+    const selectedItem = cartItems.find((item) => item.id === courseId);
+
+    if (selectedItem.quantity > 1) {
+      setCartItems((prevItems) =>
+        prevItems.map((item) => {
+          if (item.id === courseId && item.quantity > 1) {
+            return { ...item, ...{ quantity: item.quantity - 1 } };
+          }
+          return item;
+        })
+      );
+    } else {
+      setCartItems((prevItems) =>
+        prevItems.filter((item) => item.id !== courseId)
+      );
+      setShowRemovedButton(false);
+    }
   };
 
   return (
@@ -84,6 +110,14 @@ export function Card({
               >
                 Add
               </button>
+              {isLoggedIn && showRemoveButton && (
+                <button
+                  className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 ml-5 border-b-4 border-red-700 hover:border-red-500 rounded"
+                  onClick={() => handleRemoveCourse(item.id)}
+                >
+                  Remove
+                </button>
+              )}
             </>
           )}
         </div>
