@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactSearchAutocomplete } from "react-search-autocomplete"; // install this library from npm for search functionality
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 export function SearchBar({ InitalCourses, updateCourses }) {
   const handleOnSearch = (string, results) => {
@@ -22,6 +22,7 @@ export function SearchBar({ InitalCourses, updateCourses }) {
         onSearch={handleOnSearch}
         autoFocus
         formatResult={formatResult}
+        placeholder="Search for courses"
       />
     </div>
   );

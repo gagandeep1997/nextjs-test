@@ -1,5 +1,5 @@
 import React from "react";
-import { CartItem } from "./CartItem";
+import { CartItem } from "./Item";
 import { Button } from "../../elements/Button";
 
 export function Cart({ cartItems }) {
@@ -13,11 +13,9 @@ export function Cart({ cartItems }) {
     setCartOpen(false);
   };
 
-  const cartItem = cartItems.map(
-    (
-      value // shows us the cart items on the ui based on the cartItems state
-    ) => <CartItem key={value.id} name={value.name} quantity={value.quantity} />
-  );
+  const cartItem = cartItems.map((value) => (
+    <CartItem key={value.id} name={value.name} quantity={value.quantity} />
+  ));
 
   return (
     <div className="fixed top-0 left-0 right-0 h-16 bg-black/[.60]">
@@ -46,10 +44,10 @@ export function Cart({ cartItems }) {
               </svg>
             </button>
             <h3 className="font-bold text-2xl mt-5 pb-3 mb-3 border-black border-b text-black">
-              Cart Content
+              Shopping cart
             </h3>
             <div className="flex flex-row justify-between text-black mb-3">
-              <div>Name</div>
+              <div>Course name</div>
               <div>Qty</div>
             </div>
             {cartItem}

@@ -1,14 +1,19 @@
 import { getSortedData } from "@/utils/helper";
-import { Button } from "../elements/Button";
+import { Button } from "../../elements/Button";
 
-export function CourseListHeader({ Courses, updateCourses }) {
+export function CourseListHeader({
+  Courses,
+  updateCourses,
+  courseHeaderTitle,
+  sortTitle,
+}) {
   return (
     <div className="flex flex-row justify-between my-10">
-      <h3 className="font-mono ml-5 text-xl pt-2">List of Available Courses</h3>
+      <h3 className="text-4xl font-extrabold ml-5 pt-2">{courseHeaderTitle}</h3>
       <div>
-        <span className="mr-5">Sort Courses By </span>
+        <span className="mr-5">{sortTitle}</span>
         <div className="inline-flex">
-          <Button // sort functionality using helper function
+          <Button
             onClick={() => {
               const sortedData = getSortedData(Courses, "publishDate");
               updateCourses(sortedData);
@@ -16,7 +21,7 @@ export function CourseListHeader({ Courses, updateCourses }) {
             customClassName="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
             content="Date"
           />
-          <Button // sort functionality using helper function
+          <Button
             onClick={() => {
               const sortedData = getSortedData(Courses, "duration");
               updateCourses(sortedData);

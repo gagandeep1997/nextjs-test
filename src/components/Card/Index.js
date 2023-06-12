@@ -1,5 +1,5 @@
 import React from "react";
-import { AddRemoveCardButton } from "./AddRemoveCardButton";
+import { AddRemoveCardButton } from "./AddRemove";
 
 export function Card({
   item,
@@ -8,8 +8,8 @@ export function Card({
   setCartItems,
   cartItems,
 }) {
-  const [hoveredCourse, setHoveredCourse] = React.useState(null); // when hoved on the course, we uses to show the add button and gives us the index of hovered course
-  const [showRemoveButton, setShowRemovedButton] = React.useState(false); // conditionaly shows and hides the remove button based on the quantity in cart
+  const [hoveredCourse, setHoveredCourse] = React.useState(null);
+  const [showRemoveButton, setShowRemovedButton] = React.useState(false);
 
   const handleMouseEnter = (courseId) => {
     const selectedItem = cartItems.find((item) => item.id === courseId);
