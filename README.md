@@ -1,8 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## How to install this project in your local
 
-First, run the development server:
+1. first, install node version 16.17.0
+2. Install the node modules
+3. run the development server:
 
 ```bash
 npm run dev
