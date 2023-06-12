@@ -1,23 +1,23 @@
 "use client";
 
 import { useCourses } from "../../hooks/useCourses";
-import { SearchBar } from "./Search";
-import { Courses } from "./List";
-import { CourseListHeader } from "./Header";
+import { Search } from "./Search";
+import { List } from "./List";
+import { Header } from "./Header";
 
-export function CourseList() {
+export function Index() {
   const { InitalCourses, courses, setCourses } = useCourses();
 
   return (
     <>
-      <SearchBar InitalCourses={InitalCourses} updateCourses={setCourses} />
-      <CourseListHeader
+      <Search InitalCourses={InitalCourses} updateCourses={setCourses} />
+      <Header
         Courses={courses}
         updateCourses={setCourses}
         courseHeaderTitle="Available Courses"
         sortTitle="Sort By"
       />
-      <Courses Courses={courses} />
+      <List Courses={courses} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Button } from "../../elements/Button";
 
-export function AddRemoveCardButton({
+export function AddRemove({
   item,
   hoveredCourse,
   isLoggedIn,

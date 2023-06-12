@@ -1,7 +1,7 @@
 import React from "react";
-import { AddRemoveCardButton } from "./AddRemove";
+import { AddRemove } from "./AddRemove";
 
-export function Card({
+export function Index({
   item,
   isLoggedIn,
   setModalOpen,
@@ -52,7 +52,7 @@ export function Card({
             Published on: <b>{item.publishDate}</b>
           </p>
         </div>
-        <AddRemoveCardButton
+        <AddRemove
           item={item}
           hoveredCourse={hoveredCourse}
           isLoggedIn={isLoggedIn}

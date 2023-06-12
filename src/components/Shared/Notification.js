@@ -1,11 +1,11 @@
 import { Button } from "@/elements/Button";
 
-export function LoggedInPopup({ closePopup }) {
+export function Notification({ closePopup, message }) {
   return (
     <div className="login-successfull-popup fixed inset-0 flex items-center justify-center bg-black/[.80] z-10">
       <div className="bg-white w-100 p-8 rounded shadow-md text-center">
         <h2 className="text-xl text-black font-bold mb-3">
-          Successfully Logged In
+          {message}
         </h2>
         <Button
           onClick={closePopup}

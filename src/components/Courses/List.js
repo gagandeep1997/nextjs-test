@@ -1,10 +1,10 @@
 import React from "react";
-import { Card } from "../Card/Index";
+import { Index } from "../Card/Index";
 import { Modal } from "../Shared/Modal";
 import { Cart } from "../Cart/Cart";
-import { LoggedInPopup } from "../Shared/Notification";
+import { Notification } from "../Shared/Notification";
 
-export function Courses({ Courses }) {
+export function List({ Courses }) {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [cartItems, setCartItems] = React.useState([]);
@@ -20,7 +20,7 @@ export function Courses({ Courses }) {
   };
 
   const listitems = Courses.map((value) => (
-    <Card
+    <Index
       key={value.id}
       item={value}
       isLoggedIn={isLoggedIn}
@@ -39,7 +39,10 @@ export function Courses({ Courses }) {
       />
       {isLoggedIn && (
         <>
-          <LoggedInPopup closePopup={closePopup} />
+          <Notification
+            closePopup={closePopup}
+            message="Successfully Logged In"
+          />
           <Cart cartItems={cartItems} />
         </>
       )}

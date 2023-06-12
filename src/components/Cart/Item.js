@@ -1,4 +1,4 @@
-export function CartItem({ name, quantity }) {
+export function Item({ name, quantity }) {
   return (
     <div className="mb-4">
       <div className="flex flex-row mb-3 bg-white text-gray-800 shadow-md p-3 justify-between">

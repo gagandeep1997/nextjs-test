@@ -2,7 +2,7 @@
 
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
-export function SearchBar({ InitalCourses, updateCourses }) {
+export function Search({ InitalCourses, updateCourses }) {
   const handleOnSearch = (string, results) => {
     // this filters the courses which are shown on the ui based on the search string
     updateCourses(results);

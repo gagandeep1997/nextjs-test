@@ -1,7 +1,7 @@
 import { getSortedData } from "@/utils/helper";
 import { Button } from "../../elements/Button";
 
-export function CourseListHeader({
+export function Header({
   Courses,
   updateCourses,
   courseHeaderTitle,

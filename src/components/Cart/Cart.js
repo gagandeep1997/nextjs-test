@@ -1,5 +1,5 @@
 import React from "react";
-import { CartItem } from "./Item";
+import { Item } from "./Item";
 import { Button } from "../../elements/Button";
 
 export function Cart({ cartItems }) {
@@ -14,7 +14,7 @@ export function Cart({ cartItems }) {
   };
 
   const cartItem = cartItems.map((value) => (
-    <CartItem key={value.id} name={value.name} quantity={value.quantity} />
+    <Item key={value.id} name={value.name} quantity={value.quantity} />
   ));
 
   return (
