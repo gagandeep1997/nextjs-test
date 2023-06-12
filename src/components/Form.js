@@ -16,7 +16,7 @@ export function Form({ onClose, setIsLoggedIn }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (username === "" || password === "") {
+    if (username === "" || password === "") {                                // submits the form if username and password is not empty
       return;
     }
 
@@ -25,7 +25,7 @@ export function Form({ onClose, setIsLoggedIn }) {
 
     setIsLoggedIn(true);
 
-    onClose();
+    onClose();                                                               // closes the login modal
   };
   return (
     <form onSubmit={handleSubmit}>

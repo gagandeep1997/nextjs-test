@@ -9,11 +9,11 @@ export function AddRemoveCardButton({
   setCartItems,
   setShowRemovedButton,
   setModalOpen
-}) {
-  const handleAddCourse = (courseId) => {
-    const selectedItem = cartItems.find((item) => item.id === courseId);
+}) {                                                                                    // handles the add remove functionality of the cart
+  const handleAddCourse = (courseId) => {                         
+    const selectedItem = cartItems.find((item) => item.id === courseId);                // find the course in the cart if it is present or not
 
-    if (selectedItem) {
+    if (selectedItem) {                                                                 // if the item is already is in the cart use the setstate updating function to update the quantity of the course object in the cart array 
       setCartItems((prevItems) =>
         prevItems.map((item) => {
           if (item.id === courseId) {
@@ -35,30 +35,30 @@ export function AddRemoveCardButton({
     }
     setShowRemovedButton(true);
 
-    if (isLoggedIn) {
+    if (isLoggedIn) {                                                                    // if it is logged in then return from here and don't go down in this function so that it will not open the login modal
       return;
     }
 
-    setModalOpen(true);
+    setModalOpen(true);                                                                  // open the modal if it is not logged in
   };
 
   const handleRemoveCourse = (courseId) => {
     const selectedItem = cartItems.find((item) => item.id === courseId);
 
-    if (selectedItem.quantity > 1) {
+    if (selectedItem.quantity > 1) {                                                     // if quantity of remove item is greater than 1 then only decrease the quantity
       setCartItems((prevItems) =>
         prevItems.map((item) => {
-          if (item.id === courseId && item.quantity > 1) {
-            return { ...item, ...{ quantity: item.quantity - 1 } };
+          if (item.id === courseId) {
+            return { ...item, ...{ quantity: item.quantity - 1 } };                      // this is used to update the selected value of object from an array of objects based on removeindex and previous value of that value
           }
           return item;
         })
       );
     } else {
       setCartItems((prevItems) =>
-        prevItems.filter((item) => item.id !== courseId)
+        prevItems.filter((item) => item.id !== courseId)                                 // if quantity of item that is going to be remove is 1 then remove the item from the cart
       );
-      setShowRemovedButton(false);
+      setShowRemovedButton(false);                                                       // removes the remove button as item is removed from the cart
     }
   };
   return (

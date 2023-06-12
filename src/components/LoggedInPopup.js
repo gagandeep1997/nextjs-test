@@ -1,3 +1,5 @@
+import { Button } from "@/elements/Button";
+
 export function LoggedInPopup({ closePopup }) {
   return (
     <div className="login-successfull-popup fixed inset-0 flex items-center justify-center bg-black/[.80] z-10">
@@ -5,12 +7,11 @@ export function LoggedInPopup({ closePopup }) {
         <h2 className="text-xl text-black font-bold mb-3">
           Successfully Logged In
         </h2>
-        <button
-          className="mt-6 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+        <Button
           onClick={closePopup}
-        >
-          Close
-        </button>
+          customClassName="mt-6 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+          content="close"
+        />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export function Cart({ cartItems }) {
     setCartOpen(false);
   };
 
-  const cartItem = cartItems.map((value) => (
+  const cartItem = cartItems.map((value) => (                                        // shows us the cart items on the ui based on the cartItems state
     <CartItem key={value.id} name={value.name} quantity={value.quantity} />
   ));
 

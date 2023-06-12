@@ -8,7 +8,7 @@ export function CourseListHeader({ Courses, updateCourses }) {
       <div>
         <span className="mr-5">Sort Courses By </span>
         <div className="inline-flex">
-          <Button
+          <Button                                                                                    // sort functionality using helper function
             onClick={() => {
               const sortedData = getSortedData(Courses, "publishDate");
               updateCourses(sortedData);
@@ -16,7 +16,7 @@ export function CourseListHeader({ Courses, updateCourses }) {
             customClassName="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
             content="Date"
           />
-          <Button
+          <Button                                                                                    // sort functionality using helper function
             onClick={() => {
               const sortedData = getSortedData(Courses, "duration");
               updateCourses(sortedData);
