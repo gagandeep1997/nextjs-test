@@ -36,6 +36,7 @@ export function List({ Courses }) {
         isOpen={modalOpen}
         onClose={handleModalClose}
         setIsLoggedIn={setIsLoggedIn}
+        content="Login"
       />
       {isLoggedIn && (
         <>
