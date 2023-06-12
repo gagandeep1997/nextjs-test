@@ -3,7 +3,8 @@
 import React from "react";
 
 export function useCourses() {
-  const InitalCourses = [      // we first define this because we want to use in searchbar so that this array doesn't changes and we can search from static array like this
+  const InitalCourses = [
+    // we first define this because we want to use in searchbar so that this array doesn't changes and we can search from static array like this
     {
       id: "1",
       name: "React - basics",

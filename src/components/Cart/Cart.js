@@ -13,9 +13,11 @@ export function Cart({ cartItems }) {
     setCartOpen(false);
   };
 
-  const cartItem = cartItems.map((value) => (                                        // shows us the cart items on the ui based on the cartItems state
-    <CartItem key={value.id} name={value.name} quantity={value.quantity} />
-  ));
+  const cartItem = cartItems.map(
+    (
+      value // shows us the cart items on the ui based on the cartItems state
+    ) => <CartItem key={value.id} name={value.name} quantity={value.quantity} />
+  );
 
   return (
     <div className="fixed top-0 left-0 right-0 h-16 bg-black/[.60]">

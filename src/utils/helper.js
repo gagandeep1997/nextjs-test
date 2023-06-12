@@ -1,4 +1,5 @@
-const getSortedData = (data, key) => {    //custom sort function which can sort in ascending order based on the key
+const getSortedData = (data, key) => {
+  //custom sort function which can sort in ascending order based on the key
   const sortedData = [...data].sort(function (a, b) {
     if (a[`${key}`] < b[`${key}`]) {
       return -1;

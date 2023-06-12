@@ -8,20 +8,22 @@ export function Card({
   setCartItems,
   cartItems,
 }) {
-  const [hoveredCourse, setHoveredCourse] = React.useState(null);                        // when hoved on the course, we uses to show the add button and gives us the index of hovered course
-  const [showRemoveButton, setShowRemovedButton] = React.useState(false);                // conditionaly shows and hides the remove button based on the quantity in cart
+  const [hoveredCourse, setHoveredCourse] = React.useState(null); // when hoved on the course, we uses to show the add button and gives us the index of hovered course
+  const [showRemoveButton, setShowRemovedButton] = React.useState(false); // conditionaly shows and hides the remove button based on the quantity in cart
 
   const handleMouseEnter = (courseId) => {
     const selectedItem = cartItems.find((item) => item.id === courseId);
-    
+
     setHoveredCourse(courseId);
 
-    if (selectedItem) {                                                                   // uses to show the remove button when hovered course is in the cart
+    if (selectedItem) {
+      // uses to show the remove button when hovered course is in the cart
       setShowRemovedButton(true);
     }
   };
 
-  const handleMouseLeave = () => {                                                       // uses to remove the add button when we move cursor from the course
+  const handleMouseLeave = () => {
+    // uses to remove the add button when we move cursor from the course
     setHoveredCourse(null);
   };
 
