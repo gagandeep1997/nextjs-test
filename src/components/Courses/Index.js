@@ -12,7 +12,6 @@ export function Index() {
   return (
     <>
       <Search InitalCourses={InitalCourses} updateCourses={setCourses} />
-      <CustomSearch InitalCourses={InitalCourses} updateCourses={setCourses} />
       <Header
         Courses={courses}
         updateCourses={setCourses}
