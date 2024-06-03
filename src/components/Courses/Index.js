@@ -4,7 +4,6 @@ import { useCourses } from "../../hooks/useCourses";
 import { Search } from "./Search";
 import { List } from "./List";
 import { Header } from "./Header";
-import { CustomSearch } from "./CustomSearch";
 
 export function Index() {
   const { InitalCourses, courses, setCourses } = useCourses();
